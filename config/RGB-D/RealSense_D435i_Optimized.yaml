@@ -1,0 +1,84 @@
+%YAML:1.0
+#--------------------------------------------------------------------------------------------
+# Camera Parameters. Adjust them!
+#--------------------------------------------------------------------------------------------
+File.version: "1.0"
+Camera.type: "PinHole"
+# Camera calibration and distortion parameters (OpenCV)
+Camera1.fx: 617.201
+Camera1.fy: 617.362
+Camera1.cx: 324.637
+Camera1.cy: 242.462
+# distortion parameters - set to zero for optimized processing
+Camera1.k1: 0.0
+Camera1.k2: 0.0
+Camera1.p1: 0.0
+Camera1.p2: 0.0
+# Camera resolution
+Camera.width: 640
+Camera.height: 480
+# Camera frames per second - REDUCED for lower latency
+Camera.fps: 15
+# Color order of the images (0: BGR, 1: RGB. It is ignored if images are grayscale)
+Camera.RGB: 1
+# Close/Far threshold. Baseline times.
+Stereo.ThDepth: 35.0
+Stereo.b: 0.0745
+# Depth map values factor
+RGBD.DepthMapFactor: 1000.0
+#--------------------------------------------------------------------------------------------
+# ORB Parameters - Optimized for performance
+#--------------------------------------------------------------------------------------------
+# ORB Extractor: Number of features per image - REDUCED for faster processing
+ORBextractor.nFeatures: 750
+# ORB Extractor: Scale factor between levels in the scale pyramid
+ORBextractor.scaleFactor: 1.2
+# ORB Extractor: Number of levels in the scale pyramid - REDUCED for faster processing
+ORBextractor.nLevels: 4
+# ORB Extractor: Fast threshold
+# Image is divided in a grid. At each cell FAST are extracted imposing a minimum response.
+# Firstly we impose iniThFAST. If no corners are detected we impose a lower value minThFAST
+# You can lower these values if your images have low contrast
+ORBextractor.iniThFAST: 20
+ORBextractor.minThFAST: 7
+#--------------------------------------------------------------------------------------------
+# Viewer Parameters
+#--------------------------------------------------------------------------------------------
+Viewer.KeyFrameSize: 0.05
+Viewer.KeyFrameLineWidth: 1.0
+Viewer.GraphLineWidth: 0.9
+Viewer.PointSize: 2.0
+Viewer.CameraSize: 0.08
+Viewer.CameraLineWidth: 3.0
+Viewer.ViewpointX: 0.0
+Viewer.ViewpointY: -0.7
+Viewer.ViewpointZ: -3.5
+Viewer.ViewpointF: 500.0
+#--------------------------------------------------------------------------------------------
+# Performance Parameters
+#--------------------------------------------------------------------------------------------
+# Maximum number of tracked points (lower = faster)
+ORBextractor.maxTrackedPoints: 300
+# Culling factor (increased to remove more points for performance)
+ORBextractor.cullingFactor: 1.5
+# Map point creation interval (frames) - INCREASED for performance
+System.mapPointCreationInterval: 3
+# Local mapping on/off (set true during exploration, false during high-speed navigation)
+System.EnableLocalMapping: true
+# Loop closing on/off (set false for pure odometry and better performance)
+System.EnableLoopClosing: false
+# Parallel threads (adjust according to your CPU)
+System.nThreads: 4
+# Added parameters for performance
+# Skip frames in tracking thread to reduce CPU load
+Tracking.frameToSkip: 1
+# Limit keyframe creation rate (min frames between keyframes)
+LocalMapping.minFrames: 5
+# Increase matcher threshold for fewer matches (faster)
+ORBMatcher.TH: 0.8
+# Decrease local window size for faster local BA
+LocalMapping.LocalWindowSize: 5
+# Decrease local keyframes window size for faster tracking
+Tracking.LocalKeyFrames: 10
+# Disable full BA at the end of mapping (saves resources)
+System.EnableFullBA: false

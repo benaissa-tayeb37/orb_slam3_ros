@@ -1,0 +1,38 @@
+/**:
+  ros__parameters:
+    # Device settings
+    video_device: "/dev/video2"
+    framerate: 30.0  # Increased to match camera's capabilities
+    io_method: "mmap"
+    frame_id: "camera_link"  # More standard frame_id naming
+    
+    # Image format settings
+    pixel_format: "yuyv"  # Changed from mjpeg2rgb to more widely supported format
+    # av_device_format: "YUV422P"  # Removed - not needed for ROS driver
+    
+    # Image resolution
+    image_width: 640
+    image_height: 480
+    
+    # Camera identification
+    camera_name: "test_camera2"
+    camera_info_url: "file:///home/pfe/ros2_test/src/orb_slam3_ros/config/usb_cam_info.yaml"
+    
+    # Image quality parameters
+    brightness: 50  # Changed from -1 (auto) to manual control
+    contrast: 50
+    saturation: 50
+    sharpness: 50
+    gain: 50
+    
+    # White balance settings
+    auto_white_balance: true  # Let camera handle white balance
+    white_balance: 4600  # Adjusted default value
+    
+    # Exposure settings
+    autoexposure: true  # Changed to true for automatic adjustment
+    exposure: 100
+    
+    # Focus settings
+    autofocus: false  # Most USB cameras don't support autofocus
+    focus: -1
