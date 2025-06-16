@@ -1,51 +1,43 @@
 <?xml version="1.0"?>
-<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2025/XMLSchema"?>
 <package format="3">
-  <name>orb_slam3_ros</name>
-  <version>0.0.1</version>
-  <description>ORB SLAM3 ROS 2 implementation.</description>
-
-  <maintainer email="thienhoangnguyen94@gmail.com">Thien Nguyen</maintainer>
-  <license>BSD</license>
-
-  <buildtool_depend>ament_cmake</buildtool_depend>
-  
-  <!-- Core ROS 2 dependencies -->
-  <depend>rclcpp</depend>
-  <depend>std_msgs</depend>
-  <depend>nav_msgs</depend>
-  <depend>sensor_msgs</depend>
-  <depend>geometry_msgs</depend>
-  <depend>tf2_ros</depend>
-  <depend>tf2_geometry_msgs</depend>
-  <depend>cv_bridge</depend>
-  <depend>image_transport</depend>
-  <depend>message_filters</depend>
-  <depend>visualization_msgs</depend>
-
-  <!-- ORB_SLAM3 specific dependencies -->
-  <depend>libopencv-dev</depend>
-  <depend>libeigen3-dev</depend>
-  <depend>libpangolin-dev</depend>
-  <depend>libboost-system-dev</depend>
-  <depend>libboost-serialization-dev</depend>
-  <depend>libcrypto++-dev</depend>
-  <depend>rmw</depend>
-  <depend>rmw_implementation</depend>
-  <depend>rmw_fastrtps_cpp</depend>
-
-  <exec_depend>launch</exec_depend>
-  <exec_depend>launch_ros</exec_depend>
-
-  <test_depend>ament_lint_auto</test_depend>
-  <test_depend>ament_lint_common</test_depend>
-
-  <!-- Service generation -->
-  <build_depend>rosidl_default_generators</build_depend>
-  <exec_depend>rosidl_default_runtime</exec_depend>
-  <member_of_group>rosidl_interface_packages</member_of_group>
-
-  <export>
-    <build_type>ament_cmake</build_type>
-  </export>
+<name>orb_slam3_ros</name>
+<version>0.0.1</version>
+<description>ORB SLAM3 ROS 2 implementation.</description>
+<maintainer email="tayeb.benaissa@g.enp.edu.dz">Thien Nguyen</maintainer>
+<license>BSD</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<!--  Core ROS 2 dependencies  -->
+<depend>rclcpp</depend>
+<depend>std_msgs</depend>
+<depend>nav_msgs</depend>
+<depend>sensor_msgs</depend>
+<depend>geometry_msgs</depend>
+<depend>tf2_ros</depend>
+<depend>tf2_geometry_msgs</depend>
+<depend>cv_bridge</depend>
+<depend>image_transport</depend>
+<depend>message_filters</depend>
+<depend>visualization_msgs</depend>
+<!--  ORB_SLAM3 specific dependencies  -->
+<depend>libopencv-dev</depend>
+<depend>libeigen3-dev</depend>
+<depend>libpangolin-dev</depend>
+<depend>libboost-system-dev</depend>
+<depend>libboost-serialization-dev</depend>
+<depend>libcrypto++-dev</depend>
+<depend>rmw</depend>
+<depend>rmw_implementation</depend>
+<depend>rmw_fastrtps_cpp</depend>
+<exec_depend>launch</exec_depend>
+<exec_depend>launch_ros</exec_depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<!--  Service generation  -->
+<build_depend>rosidl_default_generators</build_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+<member_of_group>rosidl_interface_packages</member_of_group>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
 </package>

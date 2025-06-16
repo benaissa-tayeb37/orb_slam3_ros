@@ -161,6 +161,14 @@ add_executable(ros_stereo
   src/common.cpp
 )
 
+# Build ROS2 node for rgbd
+add_executable(ros_rgbd 
+  src/ros_rgbd.cpp
+  src/common.cpp
+)
+
+
+
 # Generate service interfaces
 rosidl_get_typesupport_target(cpp_typesupport_target "${PROJECT_NAME}" "rosidl_typesupport_cpp")
 
@@ -171,6 +179,11 @@ target_link_libraries(ros_mono
 )
 
 target_link_libraries(ros_stereo
+  ${PROJECT_NAME}_core
+  "${cpp_typesupport_target}"
+)
+
+target_link_libraries(ros_rgbd
   ${PROJECT_NAME}_core
   "${cpp_typesupport_target}"
 )
@@ -211,11 +224,30 @@ ament_target_dependencies(ros_stereo
   rmw_fastrtps_cpp
 )
 
+# Add ROS2 dependencies to ros_rgbd
+ament_target_dependencies(ros_rgbd
+  rclcpp
+  std_msgs
+  sensor_msgs
+  geometry_msgs
+  nav_msgs
+  tf2
+  tf2_ros
+  cv_bridge
+  image_transport
+  message_filters
+  visualization_msgs
+  rmw
+  rmw_implementation
+  rmw_fastrtps_cpp
+)
+
 # Install targets
 install(TARGETS
   ${PROJECT_NAME}_core
   ros_mono
   ros_stereo
+  ros_rgbd
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION lib/${PROJECT_NAME}
